@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.15" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CatalogoB2B.Application\CatalogoB2B.Application.csproj" />
+    <ProjectReference Include="..\CatalogoB2B.Infrastructure\CatalogoB2B.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
