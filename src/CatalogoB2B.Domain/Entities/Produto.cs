@@ -3,7 +3,7 @@ using CatalogoB2B.Domain.Exceptions;
 
 namespace CatalogoB2B.Domain.Entities
 {
-    public class Produto : EntityBase
+    public class Produto : BaseEntity
     {
         public string CodigoSKU { get; set; } = null!;
         public string Nome { get; set; } = null!;

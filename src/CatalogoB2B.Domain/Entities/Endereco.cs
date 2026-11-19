@@ -1,6 +1,6 @@
 namespace CatalogoB2B.Domain.Entities
 {
-    public class Endereco : EntityBase
+    public class Endereco : BaseEntity
     {
         public string Logradouro { get; set; } = null!;
         public string Numero { get; set; } = null!;

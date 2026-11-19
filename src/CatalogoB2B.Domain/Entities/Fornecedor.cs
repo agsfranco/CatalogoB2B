@@ -1,10 +1,11 @@
 namespace CatalogoB2B.Domain.Entities
 {
-    public class Fornecedor : EntityBase
+    public class Fornecedor : BaseEntity
     {     
-        public string RazaoSocial { get; set; } = null!;
+        public string Nome { get; set; } = null!;
         public string? NomeFantasia { get; set; }
         public string Documento { get; set; } = null!;
+        public TipoFornecedor TipoFornecedor { get; set; }
         public string? Email { get; set; }
         public string? Telefone { get; set; }
         public Guid? EnderecoId { get; set; }
