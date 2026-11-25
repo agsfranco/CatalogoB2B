@@ -28,7 +28,7 @@ namespace CatalogoB2B.Domain.Entities
             FornecedorId = fornecedorId;
             CategoriaId = categoriaId;
 
-            this.AlterarPreco(preco);
+            AlterarPreco(preco);
         }
 
         public void AlterarPreco (decimal preco)

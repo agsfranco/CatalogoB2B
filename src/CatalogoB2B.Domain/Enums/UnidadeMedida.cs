@@ -1,6 +1,4 @@
-using System;
 using System.ComponentModel;
-using System.Reflection;
 
 namespace CatalogoB2B.Domain.Enums
 {
@@ -158,28 +156,5 @@ namespace CatalogoB2B.Domain.Enums
 
         [Description("Barril")]
         BBL = 405
-    }
-
-    // Método de extensão
-    public static class UnidadeMedidaExtensions
-    {
-        public static string ObterDescricao(this UnidadeMedida unidade)
-        {
-            FieldInfo? field = unidade.GetType().GetField(unidade.ToString());
-            if (field == null) return unidade.ToString();
-
-            var attribute = Attribute.GetCustomAttribute(field, typeof(DescriptionAttribute)) as DescriptionAttribute;
-            return attribute?.Description ?? unidade.ToString();
-        }
-
-        public static string ObterSigla(this UnidadeMedida unidade)
-        {
-            return unidade.ToString();
-        }
-
-        public static string ObterDescricaoCompleta(this UnidadeMedida unidade)
-        {
-            return $"{unidade.ObterSigla()} - {unidade.ObterDescricao()}";
-        }
     }
 }

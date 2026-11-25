@@ -1,5 +1,8 @@
-public enum TipoFornecedor
+namespace CatalogoB2B.Domain.Enums
 {
-    PessoaFisica = 1,
-    PessoaJuridica
+    public enum TipoFornecedor
+    {
+        PessoaFisica = 1,
+        PessoaJuridica
+    }
 }
