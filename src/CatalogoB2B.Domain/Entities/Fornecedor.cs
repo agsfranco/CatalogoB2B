@@ -10,7 +10,7 @@ namespace CatalogoB2B.Domain.Entities
         public TipoFornecedor TipoFornecedor { get; set; }
         public string? Email { get; set; }
         public string? Telefone { get; set; }
-        public virtual Endereco? Endereco { get; set; }
+        public virtual ICollection<Endereco>? Enderecos { get; set; }
         public virtual ICollection<Produto>? Produtos { get; set; }
     }
 }
