@@ -19,7 +19,7 @@ namespace CatalogoB2B.Infrastructure.Repositories
 
         public async Task AdicionarAsync(T entidade)
         {
-            await _dbSet.AddAsync(entidade);
+            _dbSet.Add(entidade);
             await _context.SaveChangesAsync();
         }
 
@@ -27,23 +27,35 @@ namespace CatalogoB2B.Infrastructure.Repositories
         {
             _dbSet.Update(entidade);
             await _context.SaveChangesAsync();
-        }
+        }        
 
         public async Task<IEnumerable<T>> ListarAsync(StatusFiltro statusFiltro = StatusFiltro.Ativos)
         {
-            IQueryable<T> query = _dbSet.AsNoTracking();
-            query = statusFiltro switch
-            {
-                StatusFiltro.Ativos => query.Where(q => q.Ativo),
-                StatusFiltro.Inativos => query.Where(q => !q.Ativo),
-                StatusFiltro.Todos or _ => query
-            };
-            return await query.ToListAsync();
+            return await _dbSet.AsNoTracking().FiltrarPorStatus(statusFiltro).ToListAsync();
         }
 
         public async Task<T?> ObterPorIdAsync(Guid id)
         {
             return await _dbSet.FindAsync(id);
+        }
+
+        public async Task AtivarAsync(Guid id)
+        {
+            var entity = await ObterPorIdAsync(id);
+            if (entity != null)
+            {
+                entity.Ativar();
+                await _context.SaveChangesAsync();
+            }            
+        }
+        public async Task InativarAsync(Guid id)
+        {
+            var entity = await ObterPorIdAsync(id);
+            if (entity != null)
+            {
+                entity.Inativar();
+                await _context.SaveChangesAsync();
+            }
         }
 
         public async Task RemoverAsync(Guid id)

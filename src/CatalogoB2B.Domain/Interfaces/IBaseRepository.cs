@@ -10,5 +10,7 @@ namespace CatalogoB2B.Domain.Interfaces
         Task AdicionarAsync(T entidade);
         Task AtualizarAsync(T entidade);
         Task RemoverAsync(Guid id);
+        Task AtivarAsync(Guid id);
+        Task InativarAsync(Guid id);
     }
 }
