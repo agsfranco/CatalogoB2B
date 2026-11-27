@@ -11,7 +11,11 @@ namespace CatalogoB2B.Domain.Entities
         public string Bairro { get; set; } = null!;
         public string Cidade { get; set; } = null!;
         public EstadoBrasil Estado { get; set; }
-        public string CEP { get; set; } = null!;
+        public string CEP
+        {
+            get => field;
+            set => field = string.IsNullOrWhiteSpace(value) ? string.Empty : new string(value.Where(char.IsDigit).ToArray());
+        } = null!;
         public string Pais { get; set; } = null!;
         public Guid FornecedorId { get; set; }
         public virtual Fornecedor? Fornecedor { get; set; }
